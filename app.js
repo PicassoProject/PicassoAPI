@@ -1,3 +1,4 @@
+var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -14,6 +15,8 @@ mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/test", functio
 });
 
 app.use('/', express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 //routes.initialize(app);
 app.use('/', require('./routes'));
