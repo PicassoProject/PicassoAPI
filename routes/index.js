@@ -4,11 +4,11 @@ var router = express.Router();
 var storeDrawing = require('./storeDrawing');
 
 /***********************************************
-* Template de como hacer una nueva ruta        *
-*router.get('/nombreruta', nombreFuncion);     *
-*router.post('/nombreRuta', nombreFuncion);    *
-* Este aplica cuando tiene tanto post y get    *
-*router.use('/nombreRuta', nombreFuncion);     *
+* Template for new routes                      *
+*router.get('/routeName', functionName);       *
+*router.post('/routeName', functionName);      *
+* when you have both post and get              *
+*router.use('/routeName', functionName);       *
 ***********************************************/
 router.post('/store', storeDrawing);
 router.get('/test',function(req,res){

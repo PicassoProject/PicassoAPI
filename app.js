@@ -6,7 +6,7 @@ var app = module.exports.app = exports.app = express();
 var request = require('request');
 var mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/test", function (err) {
+mongoose.connect("mongodb://localhost/test", function (err) {
   if(err){
     console.log(err);
   } else {
@@ -38,6 +38,11 @@ app.get('*', function(req,res){
   res.send('404');
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(3000, 'localhost', function (err) {
+  if (err) {
+    console.log(err);
+    return;
+  }
 
-console.log('Server started: http://localhost:3000/ or at heroku');
+  console.log('Listening at http://localhost:4000');
+});
