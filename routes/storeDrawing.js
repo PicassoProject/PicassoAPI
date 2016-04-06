@@ -7,6 +7,7 @@ var storeDrawing = function(req,res){
   var drawing = {};
   drawing.coordinates = req.body.coordinates;
   drawing.name = req.body.name;
+  console.log(drawing.coordinates);
   //change this so that instead of returning this json it saves it on the database
   res.json({
     "status": "it worked",
