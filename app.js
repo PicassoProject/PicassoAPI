@@ -44,7 +44,7 @@ app.listen(process.env.PORT || 3000);
   if (err) {
     console.log(err);
     return;
-  }*/
+  }
 
   console.log('Listening at http://localhost:3000');
-});
+});*/
