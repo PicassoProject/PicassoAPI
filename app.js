@@ -26,8 +26,8 @@ var home = [	'<html>',
 		'<body>',
 		'<h1>API para nuestro brazo Picasso</h1>',
 		'<br /><h3>Requests validos:</h3>',
-		'<h4>/Pendiente</h4> Aqui agregare las rutas',
-		'<h4>/Pendiente</h4> Redirige JSON hacia el robot con las cordenadas correctas',
+		'<h4>/store</h4> Agrega un dibujo',
+		'<h4>/test</h4> regresa un json de prueba',
 		'</body></html>'].join('');
 
 app.get('/', function(req, res){
