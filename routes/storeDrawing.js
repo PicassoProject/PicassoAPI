@@ -6,12 +6,11 @@ var Drawing = require('../models/Drawing');
 var storeDrawing = function(req,res){
   var drawing = {};
   var cords = {};
-  cords = req.body.coordinates;
-  drawing.coordinates = cords;
-  drawing.name = req.body.name;
-  console.log(drawing.coordinates);
-  console.log("please tell me it works");
-  console.log(cords);
+  console.log("name:");
+  console.log(req.body.name);
+  console.log("coordinates:");
+  console.log(req.body.cord);
+
   //change this so that instead of returning this json it saves it on the database
   res.json({
     "status": "it worked",
