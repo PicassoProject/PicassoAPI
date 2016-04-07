@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
-//might be a teporary Schema cause I need to change the actual model according to our needs
+//TODO: maybe make it so that you have an id, so you can identify the coordinates
+//also posible to add an id for the robot arm in case we have more than one
 var Drawing = mongoose.Schema({
   coordenates: [],
   name: String
