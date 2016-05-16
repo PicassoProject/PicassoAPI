@@ -1,8 +1,15 @@
 var request = require('request');
 var mongoose = require('mongoose');
 var Drawing = require('../models/Drawing');
+var request = require('request');
 
 //this will be the post one, ill make a get as well just to make sure it works
+/*******************************************************************************
+* this will receive a drawing with an unique name
+* the drawing will contain a name and a set of coordinates
+* this will check if the name already exists, if it does it will do nothing
+* if it doesn't exist it will save it on the database and post to the controler
+*******************************************************************************/
 var storeDrawing = function(req,res){
   var drawing = {};
   drawing.name = req.body.name;
@@ -22,6 +29,22 @@ var storeDrawing = function(req,res){
           console.log(err);
         }
         else {
+          //TODO: fill the url with the edison url and route for the post
+          //TODO: test that this actually does send the drawing to the controler properly
+          requestObject = {
+            //this url is the url for the edison route
+            url: "",
+            form: {
+              coordinates: req.body.coord;
+            }
+          }
+          request.post(requestObject, function(err,response,body) {
+            if(err || response.statusCode == 404) {
+              res.status(404);
+              res.send('404 error');
+              return;
+            }
+          });
           res.json({
             "status": "successfully saved",
             "name": drawing.name
