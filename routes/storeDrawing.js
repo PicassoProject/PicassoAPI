@@ -32,7 +32,7 @@ var storeDrawing = function(req,res){
           //TODO: test that this actually does send the drawing to the controler properly
           requestObject = {
             //this url is the url for the edison route
-            url: "http://localhost:3000/test",
+            url: "https://infinite-brushlands-67485.herokuapp.com/test",
             form: {
               coordinates: req.body.coord,
             }
