@@ -17,6 +17,10 @@ router.get('/test',function(req,res){
   console.log(req.body);
   res.send(200);
 });
+router.post('/test',function(req,res){
+  console.log(req.body);
+  res.send(200);
+})
 router.get('/list', listDrawings);
 router.post('drawStored', drawStored);
 
