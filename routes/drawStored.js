@@ -12,9 +12,9 @@ var drawStored = function(req,res){
         //TODO: test that this actually does send the drawing to the controler properly
         requestObject = {
           //this url is the url for the edison route
-          url: "",
+          url: "http:localhost:3000/test",
           form: {
-            coordinates: req.body.coord;
+            coordinates: req.body.coord,
           }
         }
         request.post(requestObject, function(err,response,body) {

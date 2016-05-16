@@ -1,7 +1,6 @@
 var request = require('request');
 var mongoose = require('mongoose');
 var Drawing = require('../models/Drawing');
-var request = require('request');
 
 //this will be the post one, ill make a get as well just to make sure it works
 /*******************************************************************************
@@ -33,22 +32,30 @@ var storeDrawing = function(req,res){
           //TODO: test that this actually does send the drawing to the controler properly
           requestObject = {
             //this url is the url for the edison route
-            url: "",
+            url: "http://localhost:3000/test",
             form: {
-              coordinates: req.body.coord;
+              coordinates: req.body.coord,
             }
           }
           request.post(requestObject, function(err,response,body) {
-            if(err || response.statusCode == 404) {
+            if(err) {
+              console.log(err);
               res.status(404);
               res.send('404 error');
               return;
             }
+            else{
+              res.json({
+                "status": "successfully saved",
+                "name": drawing.name
+              });
+            }
           });
+          /*
           res.json({
             "status": "successfully saved",
             "name": drawing.name
-          });
+          });*/
         }
       });
     }
