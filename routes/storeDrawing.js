@@ -15,11 +15,11 @@ var storeDrawing = function(req,res){
   drawing.coord = req.body.coord;
   console.log("name:");
   console.log(req.body.name);
-  console.log("cordinates:");
-  console.log(req.body.coord);
+  //console.log("cordinates:");
+  //console.log(req.body.coord);
 
   Drawing.findOne({name: drawing.name}, function(err,draw){
-    console.log("dbresponse");
+    //console.log("dbresponse");
     if(!draw){
       console.log("new drawing");
       var draw2 = new Drawing({coordinates: drawing.coord, name: drawing.name});
@@ -28,14 +28,14 @@ var storeDrawing = function(req,res){
       });
       //TODO: fill the url with the edison url and route for the post
       //TODO: test that this actually does send the drawing to the controler properly
-      requestObject = {
+      /*requestObject = {
         //this url is the url for the edison route
         url: "https://infinite-brushlands-67485.herokuapp.com/test",
         form: {
           coordinates: req.body.coord,
         }
-      }
-      request.post(requestObject, function(err,response,body) {
+      }*/
+      /*request.post(requestObject, function(err,response,body) {
         if(err) {
           console.log(err);
           res.status(404);
@@ -48,12 +48,12 @@ var storeDrawing = function(req,res){
             "name": drawing.name
           });
         }
-      });
-      /*
+      });*/
+
       res.json({
         "status": "successfully saved",
         "name": drawing.name
-      });*/
+      });
     }
     else {
       res.json({
