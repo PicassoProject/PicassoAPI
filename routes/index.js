@@ -26,9 +26,7 @@ router.post('/test',function(req,res){
 router.get('/list', listDrawings);
 router.post('drawStored', drawStored);
 router.get('/deleteAll', function(req,res){
-  Drawing.find({}, function (err, docs) {
-    docs.remove(); //Remove all the documents that match!
-  });
+  Drawing.find({}).remove().exec();
 });
 
 module.exports = router;
