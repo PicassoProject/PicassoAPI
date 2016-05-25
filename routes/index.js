@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
+var Drawing = require('../models/Drawing');
 
 var storeDrawing = require('./storeDrawing');
 var listDrawings = require('./listDrawings');
@@ -20,8 +22,13 @@ router.get('/test',function(req,res){
 router.post('/test',function(req,res){
   console.log(req.body);
   res.send(200);
-})
+});
 router.get('/list', listDrawings);
 router.post('drawStored', drawStored);
+router.get('/deleteAll', function(req,res){
+  Drawing.find({}, function (err, docs) {
+    docs.remove(); //Remove all the documents that match!
+  });
+});
 
 module.exports = router;
