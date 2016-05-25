@@ -24,40 +24,36 @@ var storeDrawing = function(req,res){
       console.log("new drawing");
       var draw2 = new Drawing({coordinates: drawing.coord, name: drawing.name});
       draw2.save(function(err,d){
-        if(err){
-          console.log(err);
+        if(err){console.log(err);}
+      });
+      //TODO: fill the url with the edison url and route for the post
+      //TODO: test that this actually does send the drawing to the controler properly
+      requestObject = {
+        //this url is the url for the edison route
+        url: "https://infinite-brushlands-67485.herokuapp.com/test",
+        form: {
+          coordinates: req.body.coord,
         }
-        else {
-          //TODO: fill the url with the edison url and route for the post
-          //TODO: test that this actually does send the drawing to the controler properly
-          requestObject = {
-            //this url is the url for the edison route
-            url: "https://infinite-brushlands-67485.herokuapp.com/test",
-            form: {
-              coordinates: req.body.coord,
-            }
-          }
-          request.post(requestObject, function(err,response,body) {
-            if(err) {
-              console.log(err);
-              res.status(404);
-              res.send('404 error');
-              return;
-            }
-            else{
-              res.json({
-                "status": "successfully saved",
-                "name": drawing.name
-              });
-            }
-          });
-          /*
+      }
+      request.post(requestObject, function(err,response,body) {
+        if(err) {
+          console.log(err);
+          res.status(404);
+          res.send('404 error');
+          return;
+        }
+        else{
           res.json({
             "status": "successfully saved",
             "name": drawing.name
-          });*/
+          });
         }
       });
+      /*
+      res.json({
+        "status": "successfully saved",
+        "name": drawing.name
+      });*/
     }
     else {
       res.json({
