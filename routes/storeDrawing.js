@@ -24,8 +24,8 @@ var storeDrawing = function(req,res){
     var drawingAngle = [];
     for(var i = 0; i < drawing.coord.length; i = i + 1){
       //look I KNOW THIS WILL LOOK AWFUL BUT I HAVE NO CHOICE
-      px = drawing.coord[i].x
-      py = drawing.coord[i].y;
+      var px = drawing.coord[i].x
+      var py = drawing.coord[i].y;
       pz = 1;
       //tan1
       var l1 = 101.6;
