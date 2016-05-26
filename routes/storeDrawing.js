@@ -16,8 +16,6 @@ var storeDrawing = function(req,res){
   drawing.name = req.body.name;
   drawing.coord = req.body.coord;
   console.log("PAY ATTENTION HERE");
-  console.log(drawing.coord[0].x);
-  console.log(drawing.coord[0].y);
   //var drawingAngle = [];
 
   Drawing.findOne({name: drawing.name}, function(err,draw){
@@ -28,8 +26,8 @@ var storeDrawing = function(req,res){
       var py = drawing.coord[i].y;
       px = px / 10;
       py = py / 10;
-      console.log(px);
-      console.log(py);
+      console.log("rip"+px);
+      console.log("ripy"+py);
       pz = 1;
       //tan1
       var l1 = 101.6;
