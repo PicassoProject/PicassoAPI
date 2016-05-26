@@ -106,17 +106,15 @@ var storeDrawing = function(req,res){
           return;
         }
         else{
-          res.json({
-            "status": "successfully saved",
-            "name": "nameee"
-          });
+          res.send("successfully saved");
         }
       });
     }
+    /*
     res.json({
       "status": "name already exists",
       "name": "noName"
-    });
+    });*/
   });
 }
 
