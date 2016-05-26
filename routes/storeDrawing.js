@@ -26,6 +26,8 @@ var storeDrawing = function(req,res){
       //look I KNOW THIS WILL LOOK AWFUL BUT I HAVE NO CHOICE
       var px = drawing.coord[i].x
       var py = drawing.coord[i].y;
+      px = px / 10;
+      py = py / 10;
       console.log(px);
       console.log(py);
       pz = 1;
