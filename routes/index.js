@@ -24,7 +24,7 @@ router.post('/test',function(req,res){
   res.send(200);
 });
 router.get('/list', listDrawings);
-router.post('drawStored', drawStored);
+router.post('/drawStored', drawStored);
 router.get('/deleteAll', function(req,res){
   Drawing.find({}).remove().exec();
   res.send("it worked");
