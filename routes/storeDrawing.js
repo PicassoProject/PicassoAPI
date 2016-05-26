@@ -106,7 +106,7 @@ var storeDrawing = function(req,res){
           return;
         }
         else{
-          res.sendStatus("successfully saved");
+          res.send("successfully saved");
         }
       });
     }
