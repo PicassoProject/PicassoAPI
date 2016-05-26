@@ -2,6 +2,7 @@ var request = require('request');
 var mongoose = require('mongoose');
 var Drawing = require('../models/Drawing');
 var convert = require('../helpers/conversionAlgo');
+var math = require('mathjs');
 
 //this will be the post one, ill make a get as well just to make sure it works
 /*******************************************************************************
