@@ -77,14 +77,10 @@ var storeDrawing = function(req,res){
       preTetha2 = preTethaUp / preTethaDown;
       tetha2 = math.acos(preTetha2);
 
-      var angleN = {
-        angle1: tetha1,
-        angle2: tetha2,
-        angle3: tetha3
-      }
-      drawingAngle[i].angle1 = angleN.angle1;
-      drawingAngle[i].angle2 = angleN.angle2;
-      drawingAngle[i].angle3 = angleN.angle3;
+
+      drawingAngle[i].angle1 = tetha1;
+      drawingAngle[i].angle2 = tetha2;
+      drawingAngle[i].angle3 = tetha3;
     }
     if(!draw){
       console.log("new drawing");
