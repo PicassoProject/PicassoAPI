@@ -17,10 +17,10 @@ var storeDrawing = function(req,res){
   drawing.coord = req.body.coord;
   console.log("PAY ATTENTION HERE");
   console.log(drawing.coord[0].x);
-  var drawingAngle = [];
+  //var drawingAngle = [];
 
   Drawing.findOne({name: drawing.name}, function(err,draw){
-
+    var drawingAngle = [];
     for(var i = 0; i < drawing.coord.length; i = i + 1){
       //look I KNOW THIS WILL LOOK AWFUL BUT I HAVE NO CHOICE
       px = drawing.coord[i].x
@@ -82,7 +82,9 @@ var storeDrawing = function(req,res){
         angle2: tetha2,
         angle3: tetha3
       }
-      drawingAngle[i] = angleN;
+      drawingAngle[i].angle1 = angleN.angle1;
+      drawingAngle[i].angle2 = angleN.angle2;
+      drawingAngle[i].angle3 = angleN.angle3;
     }
     if(!draw){
       console.log("new drawing");
