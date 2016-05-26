@@ -20,7 +20,6 @@ router.get('/test',function(req,res){
 });
 router.post('/test',function(req,res){
   console.log("i got to the test");
-  console.log(req.body);
   res.send(200);
 });
 router.get('/list', listDrawings);

@@ -13,12 +13,13 @@ var drawStored = function(req,res){
         //TODO: fill the url with the edison url and route for the post
         //TODO: test that this actually does send the drawing to the controler properly
         var dummycoord = [0,0];
+        var actualCoord = req.body.coord || dummycoord;
 
         requestObject = {
           //this url is the url for the edison route
           url: "https://infinite-brushlands-67485.herokuapp.com/test",
           form: {
-            coordinates: req.body.coord || dummycoord
+            coordinates: actualCoord,
           }
         }
         request.post(requestObject, function(err,response,body) {
