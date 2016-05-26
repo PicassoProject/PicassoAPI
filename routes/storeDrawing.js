@@ -83,8 +83,8 @@ var storeDrawing = function(req,res){
       preTethaUp = preUp1 + preUp5;
       preTethaDown = ((px * math.cos(tetha1)) + (py * math.sin(tetha1)) * (px * math.cos(tetha1)) + (py * math.sin(tetha1))) + (pz * pz);
       preTetha2 = preTethaUp / preTethaDown;
-      console.log("tetha2:" + tetha2);
       tetha2 = math.acos(preTetha2);
+      console.log("tetha2:" + tetha2);
 
       console.log("results");
       console.log(tetha1);
