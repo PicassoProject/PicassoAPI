@@ -53,7 +53,6 @@ var storeDrawing = function(req,res){
       "status": "name already exists",
       "name": "noName"
     });
-  }
   });
 }
 
