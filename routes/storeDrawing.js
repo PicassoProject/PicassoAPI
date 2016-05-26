@@ -51,7 +51,7 @@ var storeDrawing = function(req,res){
       var tetha3;
       firstTan = math.atan2(py,px);
       temp2 = (math.sqrt((px*px)+(py*py)-(l1*l1)));
-      if(y < 0){
+      if(py < 0){
         temp2 = temp2 * -1;
       }
       SecondTan = math.atan2(l1,temp2);
