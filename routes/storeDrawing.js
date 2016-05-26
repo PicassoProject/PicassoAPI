@@ -1,6 +1,7 @@
 var request = require('request');
 var mongoose = require('mongoose');
 var Drawing = require('../models/Drawing');
+var convert = require('../helpers/conversionAlgo');
 
 //this will be the post one, ill make a get as well just to make sure it works
 /*******************************************************************************
@@ -13,27 +14,24 @@ var storeDrawing = function(req,res){
   var drawing = {};
   drawing.name = req.body.name;
   drawing.coord = req.body.coord;
+  var drawingAngle = [];
 
   Drawing.findOne({name: drawing.name}, function(err,draw){
-    //console.log("dbresponse");
+    for(var i = 0; i < drawing.coord.length; i = i + 1){
+      drawingAngle[i] = convert(drawing.coord,0);
+    }
     if(!draw){
       console.log("new drawing");
-      var draw2 = new Drawing({coordinates: drawing.coord, name: drawing.name});
+      var draw2 = new Drawing({coordinates: drawing.coord, name: drawing.name, angles: drawingAngle});
       draw2.save(function(err,d){
         if(err){console.log(err);}
       });
-      //TODO: fill the url with the edison url and route for the post
-      //TODO: test that this actually does send the drawing to the controler properly
-      /*
-      var x = 0;
-      var y = 0;
-      var dummycoord = [{x,y}];
-      var actualCoord = drawing.coord || dummycoord;*/
+
       requestObject = {
         //this url is the url for the edison route
         url: "https://infinite-brushlands-67485.herokuapp.com/test",
         form: {
-          coord: drawing.coord,
+          angle: drawingAngle;
         }
       }
       request.post(requestObject, function(err,response,body) {
@@ -50,18 +48,12 @@ var storeDrawing = function(req,res){
           });
         }
       });
-
-      res.json({
-        "status": "successfully saved",
-        "name": drawing.name
-      });
     }
-    else {
-      res.json({
-        "status": "name already exists",
-        "name": "noName"
-      });
-    }
+    res.json({
+      "status": "name already exists",
+      "name": "noName"
+    });
+  }
   });
 }
 

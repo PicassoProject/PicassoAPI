@@ -4,7 +4,8 @@ var mongoose = require('mongoose');
 //also posible to add an id for the robot arm in case we have more than one
 var Drawing = mongoose.Schema({
   coord: [],
-  name: String
+  name: String,
+  angles: []
 });
 
 module.exports = mongoose.model('Drawing', Drawing);
