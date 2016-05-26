@@ -13,8 +13,8 @@ var storeDrawing = function(req,res){
   var drawing = {};
   drawing.name = req.body.name;
   drawing.coord = req.body.coord;
-  console.log("nameyay:");
-  console.log(req.body.name);
+  //console.log("nameyay:");
+  //console.log(req.body.name);
   //console.log("cordinates:");
   //console.log(req.body.coord);
 
