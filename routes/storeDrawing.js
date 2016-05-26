@@ -15,12 +15,12 @@ var storeDrawing = function(req,res){
   drawing.name = req.body.name;
   drawing.coord = req.body.coord;
   console.log("PAY ATTENTION HERE");
-  console.log(drawing.coord);
+  console.log(drawing.coord[0].x);
   var drawingAngle = [];
 
   Drawing.findOne({name: drawing.name}, function(err,draw){
     for(var i = 0; i < drawing.coord.length; i = i + 1){
-      drawingAngle[i] = convert(drawing.coord,0);
+      drawingAngle[i] = convert(drawing.coord[i],0);
     }
     if(!draw){
       console.log("new drawing");
