@@ -71,9 +71,10 @@ var storeDrawing = function(req,res){
       upperCos = upperCos1 + upperCos2 + upperCos3 + (pz * pz) - (l3 * l3) - (l2 * l2);
       lowerCos = 2 * l2 * l3;
       totalCos = upperCos / lowerCos;
+      console.log("totalCos:"+totalCos);
       //console.log(tetha3);
       tetha3 = math.acos(totalCos);
-      console.log("tetha3" + tetha3);
+      console.log("tetha3:" + tetha3);
 
       preUp1 = l2 * ((px * math.cos(tetha1)) + (py * math.sin(tetha1)));
       preUp2 = (px * math.cos(tetha1) * math.cos(tetha3));
