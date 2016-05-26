@@ -12,7 +12,9 @@ var drawStored = function(req,res){
         console.log("drawing exists");
         //TODO: fill the url with the edison url and route for the post
         //TODO: test that this actually does send the drawing to the controler properly
-        var dummycoord = [0,0];
+        var x = 0;
+        var y = 0;
+        var dummycoord = [{x,y}];
         var actualCoord = req.body.coord || dummycoord;
 
         requestObject = {
