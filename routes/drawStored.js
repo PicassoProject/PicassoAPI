@@ -4,6 +4,8 @@ var Drawing = require('../models/Drawing');
 
 var drawStored = function(req,res){
     var name = req.body.name;
+    console.log("HEY HERE PAY ATTENTION");
+    console.log(req.body.name);
     Drawing.findOne({name: name}, function(err,draw){
       console.log("dbresponse");
       if(draw){
@@ -25,11 +27,11 @@ var drawStored = function(req,res){
             return;
           }
         });*/
-        res.send("it worked");
-        /*res.json({
+
+        res.json({
           "status": "successfully sent",
           "name": drawing.name
-        });*/
+        });
       }
       else{
         console.log("really what happened was that the drawing didn't exist")
