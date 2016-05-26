@@ -25,6 +25,7 @@ var drawStored = function(req,res){
             res.send('404 error');
             return;
           }
+          console.log("did i send?");
         });
 
         res.json({
