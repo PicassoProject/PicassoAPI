@@ -28,14 +28,14 @@ var storeDrawing = function(req,res){
       });
       //TODO: fill the url with the edison url and route for the post
       //TODO: test that this actually does send the drawing to the controler properly
-      /*requestObject = {
+      requestObject = {
         //this url is the url for the edison route
         url: "https://infinite-brushlands-67485.herokuapp.com/test",
         form: {
           coordinates: req.body.coord,
         }
-      }*/
-      /*request.post(requestObject, function(err,response,body) {
+      }
+      request.post(requestObject, function(err,response,body) {
         if(err) {
           console.log(err);
           res.status(404);
@@ -48,7 +48,7 @@ var storeDrawing = function(req,res){
             "name": drawing.name
           });
         }
-      });*/
+      });
 
       res.json({
         "status": "successfully saved",
