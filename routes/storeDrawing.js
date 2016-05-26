@@ -26,6 +26,8 @@ var storeDrawing = function(req,res){
       //look I KNOW THIS WILL LOOK AWFUL BUT I HAVE NO CHOICE
       var px = drawing.coord[i].x
       var py = drawing.coord[i].y;
+      console.log(px);
+      console.log(py);
       pz = 1;
       //tan1
       var l1 = 101.6;
@@ -57,6 +59,8 @@ var storeDrawing = function(req,res){
         temp2 = temp2 * -1;
       }
       SecondTan = math.atan2(l1,temp2);
+      console.log("tetha1");
+      console.log(tetha1);
       tetha1 = firstTan - SecondTan;
       tetha1x2 = tetha1 * 2;
 
@@ -66,6 +70,8 @@ var storeDrawing = function(req,res){
       upperCos = upperCos1 + upperCos2 + upperCos3 + (pz * pz) - (l3 * l3) - (l2 * l2);
       lowerCos = 2 * l2 * l3;
       totalCos = upperCos / lowerCos;
+      console.log("tetha3");
+      console.log(tetha3);
       tetha3 = math.acos(totalCos);
 
       preUp1 = l2 * ((px * math.cos(tetha1)) + (py * math.sin(tetha1)));
@@ -78,6 +84,10 @@ var storeDrawing = function(req,res){
       preTetha2 = preTethaUp / preTethaDown;
       tetha2 = math.acos(preTetha2);
 
+      console.log("results");
+      console.log(tetha1);
+      console.log(tetha2);
+      console.log(tetha3);
 
       drawingAngle[i].angle1 = tetha1;
       drawingAngle[i].angle2 = tetha2;
