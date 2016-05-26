@@ -104,7 +104,7 @@ var storeDrawing = function(req,res){
     }*/
     if(!draw){
       console.log("new drawing");
-      var draw2 = new Drawing({coordinates: drawing.coord, name: drawing.name});
+      var draw2 = new Drawing({coord: drawing.coord, name: drawing.name});
       draw2.save(function(err,d){
         if(err){console.log(err);}
       });
