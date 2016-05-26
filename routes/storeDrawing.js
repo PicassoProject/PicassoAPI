@@ -26,7 +26,7 @@ var storeDrawing = function(req,res){
       //look I KNOW THIS WILL LOOK AWFUL BUT I HAVE NO CHOICE
       px = drawing.coord[i].x
       py = drawing.coord[i].y;
-      pz = 0;
+      pz = 1;
       //tan1
       var l1 = 101.6;
       var l2 = 177.8;
