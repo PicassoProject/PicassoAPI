@@ -30,7 +30,7 @@ var drawStored = function(req,res){
 
         res.json({
           "status": "successfully sent",
-          "name": drawing.name
+          "name": draw.name
         });
       }
       else{
