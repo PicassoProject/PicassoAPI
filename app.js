@@ -6,7 +6,7 @@ var app = module.exports.app = exports.app = express();
 var request = require('request');
 var mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/test", function (err) {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/test", function (err) {
   if(err){
     console.log(err);
   } else {
