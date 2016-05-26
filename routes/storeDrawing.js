@@ -53,11 +53,13 @@ var storeDrawing = function(req,res){
       var lowerCos;
       var totalCos;
       var tetha3;
+      console.log("firstTan" + firstTan);
       firstTan = math.atan2(py,px);
       temp2 = (math.sqrt((px*px)+(py*py)-(l1*l1)));
       if(py < 0){
         temp2 = temp2 * -1;
       }
+      console.log("SecondTan" + SecondTan);
       SecondTan = math.atan2(l1,temp2);
       console.log("tetha1" + tetha1);
       //console.log(tetha1);
