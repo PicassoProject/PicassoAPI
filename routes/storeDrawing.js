@@ -31,7 +31,7 @@ var storeDrawing = function(req,res){
         //this url is the url for the edison route
         url: "https://infinite-brushlands-67485.herokuapp.com/test",
         form: {
-          angle: drawingAngle;
+          angle: drawingAngle
         }
       }
       request.post(requestObject, function(err,response,body) {
