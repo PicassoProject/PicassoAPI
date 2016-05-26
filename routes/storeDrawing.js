@@ -14,6 +14,8 @@ var storeDrawing = function(req,res){
   var drawing = {};
   drawing.name = req.body.name;
   drawing.coord = req.body.coord;
+  console.log("PAY ATTENTION HERE");
+  console.log(drawing.coord.x);
   var drawingAngle = [];
 
   Drawing.findOne({name: drawing.name}, function(err,draw){
