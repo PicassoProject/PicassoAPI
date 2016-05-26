@@ -19,9 +19,10 @@ var storeDrawing = function(req,res){
   var drawingAngle = [];
 
   Drawing.findOne({name: drawing.name}, function(err,draw){
+    /*
     for(var i = 0; i < drawing.coord.length; i = i + 1){
       drawingAngle[i] = convert(drawing.coord[i],0);
-    }
+    }*/
     if(!draw){
       console.log("new drawing");
       var draw2 = new Drawing({coordinates: drawing.coord, name: drawing.name, angles: drawingAngle});
