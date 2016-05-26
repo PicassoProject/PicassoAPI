@@ -10,12 +10,13 @@ var drawStored = function(req,res){
         console.log("drawing exists");
         //TODO: fill the url with the edison url and route for the post
         //TODO: test that this actually does send the drawing to the controler properly
+        /*
         requestObject = {
           //this url is the url for the edison route
           url: "https://infinite-brushlands-67485.herokuapp.com/test",
-          /*form: {
+          form: {
             coordinates: req.body.coord,
-          }*/
+          }
         }
         request.post(requestObject, function(err,response,body) {
           if(err || response.statusCode == 404) {
@@ -23,7 +24,7 @@ var drawStored = function(req,res){
             res.send('404 error');
             return;
           }
-        });
+        });*/
         res.send("it worked");
         /*res.json({
           "status": "successfully sent",
