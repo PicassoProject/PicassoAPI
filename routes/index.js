@@ -16,7 +16,7 @@ var drawStored = require('./drawStored');
 ***********************************************/
 router.post('/store', storeDrawing);
 router.get('/test',function(req,res){
-  console.log(req.body);
+  console.log("i got to the test");
   res.send(200);
 });
 router.post('/test',function(req,res){
