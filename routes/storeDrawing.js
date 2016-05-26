@@ -35,7 +35,7 @@ var storeDrawing = function(req,res){
       var l3 = 127;
       //for tetha1
       var firstTan;
-      var SecondTan;
+      var secondTan;
       var tetha1;
       //for tetha2
       var preTethaUp;
@@ -59,11 +59,10 @@ var storeDrawing = function(req,res){
       if(py < 0){
         temp2 = temp2 * -1;
       }
-      SecondTan = math.atan2(l1,temp2);
-      console.log("SecondTan" + SecondTan);
+      secondTan = math.atan2(l1,temp2);
+      console.log("SecondTan" + secondTan);
+      tetha1 = firstTan - secondTan;
       console.log("tetha1" + tetha1);
-      //console.log(tetha1);
-      tetha1 = firstTan - SecondTan;
       tetha1x2 = tetha1 * 2;
 
       upperCos1 = (px * px) * ((1 / 2) + ((1 / 2) * math.cos(tetha1x2)));
