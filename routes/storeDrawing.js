@@ -20,14 +20,11 @@ var storeDrawing = function(req,res){
 
   Drawing.findOne({name: drawing.name}, function(err,draw){
     var drawingAngle = [];
+    /*
     for(var i = 0; i < drawing.coord.length; i = i + 1){
       //look I KNOW THIS WILL LOOK AWFUL BUT I HAVE NO CHOICE
-      var px = drawing.coord[i].x
+      var px = drawing.coord[i].x;
       var py = drawing.coord[i].y;
-      px = px / 10;
-      py = py / 10;
-      console.log("rip"+px);
-      console.log("ripy"+py);
       pz = 1;
       //tan1
       var l1 = 101.6;
@@ -104,14 +101,15 @@ var storeDrawing = function(req,res){
       drawingAngle[i].angle1 = tetha1;
       drawingAngle[i].angle2 = tetha2;
       drawingAngle[i].angle3 = tetha3;
-    }
+    }*/
     if(!draw){
       console.log("new drawing");
-      var draw2 = new Drawing({coordinates: drawing.coord, name: drawing.name, angles: drawingAngle});
+      var draw2 = new Drawing({coordinates: drawing.coord, name: drawing.name});
       draw2.save(function(err,d){
         if(err){console.log(err);}
       });
 
+      /*
       requestObject = {
         //this url is the url for the edison route
         url: "https://infinite-brushlands-67485.herokuapp.com/test",
@@ -129,8 +127,10 @@ var storeDrawing = function(req,res){
         else{
           res.send("successfully saved");
         }
-      });
+      });*/
+      res.sendStatus(200);
     }
+    res.sendStatus(404);
     /*
     res.json({
       "status": "name already exists",
