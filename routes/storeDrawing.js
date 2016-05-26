@@ -130,7 +130,10 @@ var storeDrawing = function(req,res){
       });*/
       res.sendStatus(200);
     }
-    res.sendStatus(404);
+    else{
+
+      res.sendStatus(404);
+    }
     /*
     res.json({
       "status": "name already exists",
