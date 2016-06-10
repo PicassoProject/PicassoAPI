@@ -29,6 +29,7 @@ var storeDrawing = function(req,res){
         draw2.save(function(err,d){
           if(err){console.log(err);}
         });
+        console.log("im fullfilling my promise");
         fulfill(drawing);
       }
       else{
@@ -38,6 +39,7 @@ var storeDrawing = function(req,res){
     });
   });
   transform.then(function(value){
+    console.log("i continued with my promise");
     co = [];
     co = value.coord;
     for(var i = 0; i < co.length; i++)
