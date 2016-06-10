@@ -61,6 +61,7 @@ var storeDrawing = function(req,res){
       angles[i].angle2 = Q2;
       angles[i].angle3 = Q3;
     }
+
     requestObject = {
     //this url is the url for the edison route
       url: "10.4.41.219:3000",
@@ -68,6 +69,8 @@ var storeDrawing = function(req,res){
         draw: angles
       }
     }
+    console.log(angles);
+    /*
     request.post(requestObject, function(err,response,body) {
       if(err) {
         console.log(err);
@@ -78,7 +81,7 @@ var storeDrawing = function(req,res){
       else{
         res.send("successfully saved");
       }
-    });
+    });*/
   });
 }
 
