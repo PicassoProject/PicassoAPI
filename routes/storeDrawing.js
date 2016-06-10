@@ -44,6 +44,7 @@ var storeDrawing = function(req,res){
     co = value.coord;
     for(var i = 0; i < co.length; i++)
     {
+      console.log(i);
       var px = co[i].x;
       var py = co[i].y;
       var pz = 0;
