@@ -16,6 +16,7 @@ var drawStored = require('./drawStored');
 ***********************************************/
 router.post('/store', storeDrawing);
 router.get('/test',function(req,res){
+  console.log("dafdsf");
   res.sendStatus(200);
 });
 router.post('/test',function(req,res){
