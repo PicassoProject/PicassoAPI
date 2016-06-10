@@ -48,7 +48,7 @@ var storeDrawing = function(req,res){
       var l1 = 44.45;
       var l2 = 165.1;
       var l3 = 152.4;
-      console.log(co[i].x);
+      //console.log(co[i].x);
       var q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
       var q1Value2 = (44.45)/sqrt((px*px) + (py*py) - (l1*l1))
       var Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
@@ -60,7 +60,9 @@ var storeDrawing = function(req,res){
       angles[i].angle1 = Q1;
       angles[i].angle2 = Q2;
       angles[i].angle3 = Q3;
+      console.log("fml")
     }
+    console.log("i finished calculating");
 
     requestObject = {
     //this url is the url for the edison route
