@@ -91,22 +91,8 @@ var storeDrawing = function(req,res){
         else{
           console.log("successfully transformed");
         }
+      });
     });
-
-
-    /*
-    request.post(requestObject, function(err,response,body) {
-      if(err) {
-        console.log(err);
-        res.status(404);
-        res.send('404 error');
-        return;
-      }
-      else{
-        res.send("successfully saved");
-      }
-    });*/
-    //res.send("successfully saved");
   });
 }
 
