@@ -18,7 +18,6 @@ var storeDrawing = function(req,res){
   drawing.name = req.body.name;
   drawing.coord = req.body.coord;
   console.log("PAY ATTENTION HERE");
-  //var drawingAngle = [];
   var transform = new Promise(function(fulfill,reject){
     console.log("did i get here");
     Drawing.findOne({name: drawing.name}, function(err,draw){
@@ -39,7 +38,7 @@ var storeDrawing = function(req,res){
     });
   });
   transform.then(function(value){
-    res.send("successfully saved");
+    res.send("200");
     console.log("i continued with my promise");
   })
   .then(function(value){
