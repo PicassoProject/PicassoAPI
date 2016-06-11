@@ -40,7 +40,7 @@ var storeDrawing = function(req,res){
     });
   });
   transform.then(function(value){
-    res.send("successfully saved");
+    //res.send("successfully saved");
     console.log("i continued with my promise");
     co = [];
     co = value.coord;
@@ -69,7 +69,6 @@ var storeDrawing = function(req,res){
       console.log("fml")
     }
     console.log("i finished calculating");
-
     requestObject = {
     //this url is the url for the edison route
       url: "10.4.41.219:3000",
@@ -90,6 +89,7 @@ var storeDrawing = function(req,res){
         res.send("successfully saved");
       }
     });*/
+    res.send("successfully saved");
   });
 }
 
