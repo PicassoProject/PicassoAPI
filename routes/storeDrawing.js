@@ -2,6 +2,7 @@ var request = require('request');
 var mongoose = require('mongoose');
 var Drawing = require('../models/Drawing');
 var convert = require('../helpers/conversionAlgo');
+var Promise = require('promise');
 var math = require('mathjs');
 
 //this will be the post one, ill make a get as well just to make sure it works
@@ -39,6 +40,7 @@ var storeDrawing = function(req,res){
     });
   });
   transform.then(function(value){
+    res.send("successfully saved");
     console.log("i continued with my promise");
     co = [];
     co = value.coord;
@@ -52,9 +54,9 @@ var storeDrawing = function(req,res){
       var l1 = 44.45;
       var l2 = 165.1;
       var l3 = 152.4;
-      //console.log(co[i].x);
       var q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
       var q1Value2 = (44.45)/sqrt((px*px) + (py*py) - (l1*l1))
+      console.log(q1Value2);
       var Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
       q3Value2 = ((2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3))*((2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3)) - 1;
       q3Value = Math.sqrt(q3Value2) //this should be positive or negative depending on something, idk what yet
