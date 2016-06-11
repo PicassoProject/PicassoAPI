@@ -42,6 +42,7 @@ var storeDrawing = function(req,res){
     console.log("i continued with my promise");
     co = [];
     co = value.coord;
+    console.log(co.length);
     for(var i = 0; i < co.length; i++)
     {
       console.log(i);
