@@ -4,7 +4,6 @@ var Drawing = require('../models/Drawing');
 var convert = require('../helpers/conversionAlgo');
 var Promise = require('promise');
 var math = require('mathjs');
-var
 //this will be the post one, ill make a get as well just to make sure it works
 /*******************************************************************************
 * this will receive a drawing with an unique name
