@@ -70,7 +70,7 @@ var storeDrawing = function(req,res){
           q3Value3 = (2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3);
           q3Value3 = Math.pow(q3Value3,2);
           q3Value2 = q3Value3 - 1;
-          console.log("value before before Q3: " + q3Value.toString());
+          console.log("value before before Q3: " + q3Value2.toString());
           //console.log("value before before q3: " + q3Value2.toString());
           q3Value = Math.sqrt(q3Value2); //this should be positive or negative depending on something, idk what yet
           Q3 = Math.atan(q3Value);
