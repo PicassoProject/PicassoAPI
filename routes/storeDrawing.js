@@ -90,7 +90,7 @@ var storeDrawing = function(req,res){
     transform2.then(function(val){
       var token = "EAADDCwGaOZBMBAFeKzbJS3fr9flZCoZAe37ZAwCC2gjhP1mqHhJo6AaZAvSWSEZA9CVnehJE1C6C54uMm46CbaxpzbUNfKSlyJZCWuQBCcoWEDwvInzOxzcl8tYtvP3ELPu1d1mIsVGUVLNo6SgBK2GBXkeb3l32o8XQIvmZAY8i5wZDZD";
       face.setAccessToken(token);
-      face.api('1686932661557435/feed','post',{message: drawing.coord},function(response){
+      face.api('1686932661557435/feed','post',{message: angles},function(response){
         if(!response || response.error){
           console.log(!response ? 'error occurred' : response.error);
           res.send(200);
