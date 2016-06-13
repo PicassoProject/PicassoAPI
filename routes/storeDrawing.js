@@ -62,6 +62,8 @@ var storeDrawing = function(req,res){
 
       px = co[i].x;
       py = co[i].y;
+      console.log("value of px" + px.toString());
+      console.log("value of py" + py.toString());
       console.log("i've declared the initial values");
       q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
       console.log("i did get past the first operation");
