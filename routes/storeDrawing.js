@@ -65,10 +65,10 @@ var storeDrawing = function(req,res){
       console.log("i've declared the initial values");
       q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
       console.log("i did get past the first operation");
-      q1Value2 = (44.45)/sqrt((px*px) + (py*py) - (l1*l1))
+      q1Value2 = (44.45)/sqrt((px*px) + (py*py) - (l1*l1));
       console.log("i got past the second one");
       Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
-      console.log("i got the value of Q1");
+      //console.log("i got the value of Q1");
       q3Value2 = ((2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3))*((2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3)) - 1;
       q3Value = Math.sqrt(q3Value2) //this should be positive or negative depending on something, idk what yet
       Q3 = Math.atan(q3Value);
