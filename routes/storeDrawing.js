@@ -1,6 +1,7 @@
 var request = require('request');
 var mongoose = require('mongoose');
 var Drawing = require('../models/Drawing');
+var Status = require('../models/Status');
 var convert = require('../helpers/conversionAlgo');
 var Promise = require('promise');
 var face = require('fb');
@@ -69,7 +70,7 @@ var storeDrawing = function(req,res){
           Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
           q3Value3 = (2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3);
           q3Value3 = Math.pow(q3Value3,2);
-          q3Value2 = q3Value3 - 1;
+          q3Value2 = q3Value3 -  1;
           console.log("value before before Q3: " + q3Value2.toString());
           //console.log("value before before q3: " + q3Value2.toString());
           q3Value = Math.sqrt(q3Value2); //this should be positive or negative depending on something, idk what yet
@@ -90,37 +91,29 @@ var storeDrawing = function(req,res){
           fulfill(angles);
           clearInterval(loop);
         }
-      },3000);
+      },2000);//3000 works fine, trying 2000
     });
     //second promise fullfilled
     transform2.then(function(val){
-      var token = "EAADDCwGaOZBMBAFeKzbJS3fr9flZCoZAe37ZAwCC2gjhP1mqHhJo6AaZAvSWSEZA9CVnehJE1C6C54uMm46CbaxpzbUNfKSlyJZCWuQBCcoWEDwvInzOxzcl8tYtvP3ELPu1d1mIsVGUVLNo6SgBK2GBXkeb3l32o8XQIvmZAY8i5wZDZD";
-      face.setAccessToken(token);
-      face.api('1686932661557435/feed','post',{message: angles},function(response){
-        if(!response || response.error){
-          console.log(!response ? 'error occurred' : response.error);
-          res.send(200);
+      Status.findOne({name: 'active'}, function(err, stat){
+        if(err){
+          console.log(err);
+          return err;
         }
-        else{
-          console.log('Post Id: ' + response.id);
-          res.send(404);
-        }
+        stat.toDraw = 1;
+        stat.lastName = drawing.name;
+        stat.angles = val;
+        stat.save(function(error){
+          if(error){
+            console.log(error);
+            return error;
+          }
+          else{
+            res.sendStatus(200);
+          }
+        });
       });
     });
   });
-/*  .then(function(value){
-    var token = "EAADDCwGaOZBMBAFeKzbJS3fr9flZCoZAe37ZAwCC2gjhP1mqHhJo6AaZAvSWSEZA9CVnehJE1C6C54uMm46CbaxpzbUNfKSlyJZCWuQBCcoWEDwvInzOxzcl8tYtvP3ELPu1d1mIsVGUVLNo6SgBK2GBXkeb3l32o8XQIvmZAY8i5wZDZD";
-    face.setAccessToken(token);
-    face.api('1686932661557435/feed','post',{message: drawing.coord},function(response){
-      if(!response || response.error){
-        console.log(!response ? 'error occurred' : response.error);
-        res.send(200);
-      }
-      else{
-        console.log('Post Id: ' + response.id);
-        res.send(404);
-      }
-    });
-  });*/
 }
 module.exports = storeDrawing;

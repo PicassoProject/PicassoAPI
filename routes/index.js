@@ -2,10 +2,12 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Drawing = require('../models/Drawing');
+var Status = require('../models/Status');
 
 var storeDrawing = require('./storeDrawing');
 var listDrawings = require('./listDrawings');
 var drawStored = require('./drawStored');
+var print = require('./drawingtoprint');
 
 /***********************************************
 * Template for new routes                      *
@@ -15,19 +17,24 @@ var drawStored = require('./drawStored');
 *router.use('/routeName', functionName);       *
 ***********************************************/
 router.post('/store', storeDrawing);
-router.get('/test',function(req,res){
-  console.log("dafdsf");
-  res.sendStatus(200);
-});
-router.post('/test',function(req,res){
-  console.log("i got to the test");
-  res.sendStatus(200);
-});
+
+router.get('/drawingtoprint', print);
 router.get('/list', listDrawings);
 router.post('/drawStored', drawStored);
 router.get('/deleteAll', function(req,res){
   Drawing.find({}).remove().exec();
   res.send("it worked");
+});
+router.get('/createStatus', function(req,res){
+  var status = new Status({name: 'active', toDraw: 0});
+  status.save(function(err, stat){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.sendStatus(200);
+    }
+  });
 });
 
 module.exports = router;
