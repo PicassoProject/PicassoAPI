@@ -42,6 +42,7 @@ var storeDrawing = function(req,res){
     var co = [];
     var co = value.coord;
     console.log("this is the length of the array" + co.length.toString());
+    /*
     for(var i = 0; i < co.length; i = i + 1)
     {
       console.log("im inside the for");
@@ -64,11 +65,10 @@ var storeDrawing = function(req,res){
       py = co[i].y;
       console.log("value of px" + px.toString());
       console.log("value of py" + py.toString());
-      console.log("i've declared the initial values");
       q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
-      console.log("i did get past the first operation");
       q1Value2 = (44.45)/sqrt((px*px) + (py*py) - (l1*l1));
-      console.log("i got past the second one");
+
+
       Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
       //console.log("i got the value of Q1");
       q3Value2 = ((2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3))*((2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3)) - 1;
@@ -80,7 +80,7 @@ var storeDrawing = function(req,res){
       angles[i].angle2 = Q2;
       angles[i].angle3 = Q3;
       console.log("fml")
-    }
+    }*/
     console.log("i finished calculating");
   })
   .then(function(value){
