@@ -81,7 +81,7 @@ var storeDrawing = function(req,res){
           i = i + 1;
         }
         else{
-          fullfill(angles);
+          fulfill(angles);
           clearInterval(refreshId);
         }
       },3000);
