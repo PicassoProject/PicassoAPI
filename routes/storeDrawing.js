@@ -45,8 +45,8 @@ var storeDrawing = function(req,res){
     for(var i = 0; i < co.length; i = i + 1)
     {
       console.log("im inside the for");
-      var px = co[i].x;
-      var py = co[i].y;
+      var px = 0;
+      var py = 0;
       var pz = 0;
       var l1 = 44.45;
       var l2 = 165.1;
@@ -59,8 +59,12 @@ var storeDrawing = function(req,res){
       var q3Value = 0;
       var Q2 = 0;
       var q2Value = 0;
+
+      px = co[i].x;
+      py = co[i].y;
       console.log("i've declared the initial values");
       q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
+
       q1Value2 = (44.45)/sqrt((px*px) + (py*py) - (l1*l1))
       Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
       console.log("i've calculated q1");
