@@ -38,10 +38,10 @@ var storeDrawing = function(req,res){
     });
   });
   transform.then(function(value){
-    console.log("rip");
+    console.log("second part of the promise");
     var co = [];
     var co = value.coord;
-    console.log(co.length);
+    console.log("this is the length of the array" + co.length.toString());
     for(var i = 0; i < co.length; i++)
     {
       //console.log(i);
