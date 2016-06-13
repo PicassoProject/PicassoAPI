@@ -82,7 +82,7 @@ var storeDrawing = function(req,res){
         }
         else{
           fulfill(angles);
-          clearInterval(refreshId);
+          clearInterval(loop);
         }
       },3000);
     });
