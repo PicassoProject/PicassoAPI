@@ -42,9 +42,9 @@ var storeDrawing = function(req,res){
     var co = [];
     var co = value.coord;
     console.log("this is the length of the array" + co.length.toString());
-    for(var i = 0; i < co.length; i++)
+    for(var i = 0; i < co.length; i = i + 1)
     {
-      //console.log(i);
+      console.log("im inside the for");
       var px = co[i].x;
       var py = co[i].y;
       var pz = 0;
