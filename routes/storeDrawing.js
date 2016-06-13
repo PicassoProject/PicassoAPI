@@ -18,9 +18,8 @@ var storeDrawing = function(req,res){
   var angles = [];
   drawing.name = req.body.name;
   drawing.coord = req.body.coord;
-  console.log("PAY ATTENTION HERE");
   var transform = new Promise(function(fulfill,reject){
-    console.log("did i get here");
+    console.log("entering the first part of the promise");
     Drawing.findOne({name: drawing.name}, function(err,draw){
       var drawingAngle = [];
       if(!draw){
@@ -39,10 +38,10 @@ var storeDrawing = function(req,res){
     });
   });
   transform.then(function(value){
-    res.send("200");
     console.log("i continued with my promise");
   })
   .then(function(value){
+    console.log("rip");
     var co = [];
     var co = value.coord;
     console.log(co.length);
@@ -76,13 +75,14 @@ var storeDrawing = function(req,res){
     console.log("second promise");
     var token = "EAADDCwGaOZBMBAEjZCjpYPGORGYwoQJxp6ujAkL0XfkOjpmLJ5hg4gzWsqohVuCopQLwi6ZBQOhSkmAiWpyk6ZCQDgJZA3SZC3trkf47QBM203vJUcqtG3EwknXYrZBcUGReZBjq3t9OmbCREtdU7WLKNQSvImdpmGxUqzRIZBXzZBAwZDZD";
     face.setAccessToken(token);
-    face.api('1686932661557435/feed','post',{message: value},function(res){
-      if(!res || res.error){
-        console.log(!res ? 'error occurred' : res.error);
-        return;
+    face.api('1686932661557435/feed','post',{message: value},function(response){
+      if(!res || response.error){
+        console.log(!res ? 'error occurred' : response.error);
+        res.send(200);
       }
       else{
-        console.log('Post Id: ' + res.id);
+        console.log('Post Id: ' + response.id);
+        res.send(404);
       }
     });
   });
