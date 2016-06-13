@@ -74,11 +74,13 @@ var storeDrawing = function(req,res){
             q3Value = q3Value * -1;
             Q3 = Math.atan(q3Value);
           }
+          console.log("value of angle3: " + Q3.toString());
           q2Value = ((-pz*(l2+l3*Math.cos(Q3)) - (l3*Math.sin(Q3)*(py*Math.sin(Q1) + px*Math.cos(Q1))))/((px*Math.cos(Q1)+py*Math.sin(Q1)) * (l3*Math.cos(Q3)+l2) - (pz*l3*Math.sin(Q3))));
           Q2 = Math.atan(q2Value);
+          console.log("value of angle2: " + Q2.toString());
           angleObject.angle1 = Q1;
           angleObject.angle2 = Q2;
-          angleObject.angle3 = Q3
+          angleObject.angle3 = Q3;
           angles[i] = angleObject;
           console.log("fml")
           i = i + 1;
