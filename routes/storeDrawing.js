@@ -42,48 +42,47 @@ var storeDrawing = function(req,res){
     //starting second promise
     var transform2 = new Promise(function(fulfill,reject){
       console.log("this is the second promise");
-      for(var i = 0; i < co.length; i = i + 1)
-      {
-        console.log("im inside the for");
-        var px = 0;
-        var py = 0;
-        var pz = 0;
-        var l1 = 44.45;
-        var l2 = 165.1;
-        var l3 = 152.4;
-        var Q1 = 0;
-        var q1Value = 0;
-        var q1Value2 = 0;
-        var Q3 = 0;
-        var q3Value2 = 0;
-        var q3Value = 0;
-        var Q2 = 0;
-        var q2Value = 0;
-        px = drawing.coord[i].x;
-        py = drawing.coord[i].y;
-        console.log("value of px" + px.toString());
-        console.log("value of py" + py.toString());
-        /*
-        q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
-        q1Value2 = (44.45)/sqrt((px*px) + (py*py) - (l1*l1));
-        Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
-        //console.log("i got the value of Q1");
-        q3Value2 = ((2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3))*((2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3)) - 1;
-        q3Value = Math.sqrt(q3Value2) //this should be positive or negative depending on something, idk what yet
-        Q3 = Math.atan(q3Value);
-        q2Value = ((-pz*(l2+l3*Math.cos(Q3)) - (l3*Math.sin(Q3)*(py*Math.sin(Q1) + px*Math.cos(Q1))))/((px*Math.cos(Q1)+py*Math.sin(Q1)) * (l3*Math.cos(Q3)+l2) - (pz*l3*Math.sin(Q3))));
-        Q2 = Math.atan(q2Value);*/
-        angles[i].angle1 = Q1;
-        angles[i].angle2 = Q2;
-        angles[i].angle3 = Q3;
-        console.log("fml")
-      }
-      if(angles){
-        fullfill(angles);
-      }
-      else {
-        reject(res.error);
-      }
+      var i = 0;
+      var loop = setInterval(function(){
+        if(i < drawing.coord.length){
+          var px = 0;
+          var py = 0;
+          var pz = 0;
+          var l1 = 44.45;
+          var l2 = 165.1;
+          var l3 = 152.4;
+          var Q1 = 0;
+          var q1Value = 0;
+          var q1Value2 = 0;
+          var Q3 = 0;
+          var q3Value2 = 0;
+          var q3Value = 0;
+          var Q2 = 0;
+          var q2Value = 0;
+          px = drawing.coord[i].x;
+          py = drawing.coord[i].y;
+          console.log("value of px" + px.toString());
+          console.log("value of py" + py.toString());
+          q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
+          q1Value2 = (44.45)/sqrt((px*px) + (py*py) - (l1*l1));
+          Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
+          //console.log("i got the value of Q1");
+          q3Value2 = ((2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3))*((2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3)) - 1;
+          q3Value = Math.sqrt(q3Value2) //this should be positive or negative depending on something, idk what yet
+          Q3 = Math.atan(q3Value);
+          q2Value = ((-pz*(l2+l3*Math.cos(Q3)) - (l3*Math.sin(Q3)*(py*Math.sin(Q1) + px*Math.cos(Q1))))/((px*Math.cos(Q1)+py*Math.sin(Q1)) * (l3*Math.cos(Q3)+l2) - (pz*l3*Math.sin(Q3))));
+          Q2 = Math.atan(q2Value);
+          angles[i].angle1 = Q1;
+          angles[i].angle2 = Q2;
+          angles[i].angle3 = Q3;
+          console.log("fml")
+          i = i + 1;
+        }
+        else{
+          fullfill(angles);
+          clearInterval(refreshId);
+        }
+      },3000);
     });
     //second promise fullfilled
     transform2.then(function(val){
