@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var Drawing = require('../models/Drawing');
 var convert = require('../helpers/conversionAlgo');
 var Promise = require('promise');
+var face = require('fb');
 var math = require('mathjs');
 //this will be the post one, ill make a get as well just to make sure it works
 /*******************************************************************************
@@ -71,22 +72,17 @@ var storeDrawing = function(req,res){
     console.log("i finished calculating");
   })
   .then(function(value){
-    requestObject = {
-    //this url is the url for the edison route
-      url: "10.4.41.219:3000",
-      form: {
-        draw: value
-      }
-    }
     console.log(angles);
     console.log("second promise");
-    request.post(requestObject, function(err,response,body) {
-      if(err) {
-        console.log(err);
+    var token = "EAADDCwGaOZBMBAEjZCjpYPGORGYwoQJxp6ujAkL0XfkOjpmLJ5hg4gzWsqohVuCopQLwi6ZBQOhSkmAiWpyk6ZCQDgJZA3SZC3trkf47QBM203vJUcqtG3EwknXYrZBcUGReZBjq3t9OmbCREtdU7WLKNQSvImdpmGxUqzRIZBXzZBAwZDZD";
+    face.setAccessToken(token);
+    face.api('1686932661557435/feed','post',{message: value},function(res){
+      if(!res || res.error){
+        console.log(!res ? 'error occurred' : res.error);
         return;
       }
       else{
-        console.log("successfully transformed");
+        console.log('Post Id: ' + res.id);
       }
     });
   });
