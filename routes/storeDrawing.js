@@ -51,15 +51,24 @@ var storeDrawing = function(req,res){
       var l1 = 44.45;
       var l2 = 165.1;
       var l3 = 152.4;
-      var q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
-      var q1Value2 = (44.45)/sqrt((px*px) + (py*py) - (l1*l1))
-      console.log(q1Value2);
-      var Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
+      var Q1 = 0;
+      var q1Value = 0;
+      var q1Value2 = 0;
+      var Q3 = 0;
+      var q3Value2 = 0;
+      var q3Value = 0;
+      var Q2 = 0;
+      var q2Value = 0;
+      console.log("i've declared the initial values");
+      q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
+      q1Value2 = (44.45)/sqrt((px*px) + (py*py) - (l1*l1))
+      Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
+      console.log("i've calculated q1");
       q3Value2 = ((2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3))*((2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3)) - 1;
       q3Value = Math.sqrt(q3Value2) //this should be positive or negative depending on something, idk what yet
-      var Q3 = Math.atan(q3Value);
-      var q2Value = ((-pz*(l2+l3*Math.cos(Q3)) - (l3*Math.sin(Q3)*(py*Math.sin(Q1) + px*Math.cos(Q1))))/((px*Math.cos(Q1)+py*Math.sin(Q1)) * (l3*Math.cos(Q3)+l2) - (pz*l3*Math.sin(Q3))));
-      var Q2 = Math.atan(q2Value);
+      Q3 = Math.atan(q3Value);
+      q2Value = ((-pz*(l2+l3*Math.cos(Q3)) - (l3*Math.sin(Q3)*(py*Math.sin(Q1) + px*Math.cos(Q1))))/((px*Math.cos(Q1)+py*Math.sin(Q1)) * (l3*Math.cos(Q3)+l2) - (pz*l3*Math.sin(Q3))));
+      Q2 = Math.atan(q2Value);
       angles[i].angle1 = Q1;
       angles[i].angle2 = Q2;
       angles[i].angle3 = Q3;
