@@ -38,9 +38,6 @@ var storeDrawing = function(req,res){
     });
   });
   transform.then(function(value){
-    console.log("i continued with my promise");
-  })
-  .then(function(value){
     console.log("rip");
     var co = [];
     var co = value.coord;
