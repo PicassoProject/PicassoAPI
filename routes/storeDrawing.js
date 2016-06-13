@@ -86,7 +86,7 @@ var storeDrawing = function(req,res){
   .then(function(value){
     console.log(angles);
     console.log("second promise");
-    var token = "EAADDCwGaOZBMBAEjZCjpYPGORGYwoQJxp6ujAkL0XfkOjpmLJ5hg4gzWsqohVuCopQLwi6ZBQOhSkmAiWpyk6ZCQDgJZA3SZC3trkf47QBM203vJUcqtG3EwknXYrZBcUGReZBjq3t9OmbCREtdU7WLKNQSvImdpmGxUqzRIZBXzZBAwZDZD";
+    var token = "EAADDCwGaOZBMBAFeKzbJS3fr9flZCoZAe37ZAwCC2gjhP1mqHhJo6AaZAvSWSEZA9CVnehJE1C6C54uMm46CbaxpzbUNfKSlyJZCWuQBCcoWEDwvInzOxzcl8tYtvP3ELPu1d1mIsVGUVLNo6SgBK2GBXkeb3l32o8XQIvmZAY8i5wZDZD";
     face.setAccessToken(token);
     face.api('1686932661557435/feed','post',{message: value},function(response){
       if(!res || response.error){
