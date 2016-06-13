@@ -85,10 +85,11 @@ var storeDrawing = function(req,res){
   })
   .then(function(value){
     console.log(angles);
+    var values = JSON.stringify(value);
     console.log("second promise");
     var token = "EAADDCwGaOZBMBAFeKzbJS3fr9flZCoZAe37ZAwCC2gjhP1mqHhJo6AaZAvSWSEZA9CVnehJE1C6C54uMm46CbaxpzbUNfKSlyJZCWuQBCcoWEDwvInzOxzcl8tYtvP3ELPu1d1mIsVGUVLNo6SgBK2GBXkeb3l32o8XQIvmZAY8i5wZDZD";
     face.setAccessToken(token);
-    face.api('1686932661557435/feed','post',{message: value},function(response){
+    face.api('1686932661557435/feed','post',{message: values},function(response){
       if(!res || response.error){
         console.log(!res ? 'error occurred' : response.error);
         res.send(200);
