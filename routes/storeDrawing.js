@@ -63,6 +63,7 @@ var storeDrawing = function(req,res){
         py = drawing.coord[i].y;
         console.log("value of px" + px.toString());
         console.log("value of py" + py.toString());
+        /*
         q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
         q1Value2 = (44.45)/sqrt((px*px) + (py*py) - (l1*l1));
         Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
@@ -71,7 +72,7 @@ var storeDrawing = function(req,res){
         q3Value = Math.sqrt(q3Value2) //this should be positive or negative depending on something, idk what yet
         Q3 = Math.atan(q3Value);
         q2Value = ((-pz*(l2+l3*Math.cos(Q3)) - (l3*Math.sin(Q3)*(py*Math.sin(Q1) + px*Math.cos(Q1))))/((px*Math.cos(Q1)+py*Math.sin(Q1)) * (l3*Math.cos(Q3)+l2) - (pz*l3*Math.sin(Q3))));
-        Q2 = Math.atan(q2Value);
+        Q2 = Math.atan(q2Value);*/
         angles[i].angle1 = Q1;
         angles[i].angle2 = Q2;
         angles[i].angle3 = Q3;
