@@ -49,7 +49,7 @@ var storeDrawing = function(req,res){
           var angleObject = {}
           var px = 0;
           var py = 0;
-          var pz = -1000;
+          var pz = 0;
           var l1 = 44.45;
           var l2 = 165.1;
           var l3 = 152.4;
@@ -61,8 +61,8 @@ var storeDrawing = function(req,res){
           var q3Value = 0;
           var Q2 = 0;
           var q2Value = 0;
-          px = drawing.coord[i].x;
-          py = drawing.coord[i].y;
+          px = drawing.coord[i].x / 10;
+          py = drawing.coord[i].y / 10;
           console.log("value of px" + px.toString());
           console.log("value of py" + py.toString());
           q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
