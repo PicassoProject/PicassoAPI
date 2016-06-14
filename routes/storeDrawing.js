@@ -57,6 +57,7 @@ var storeDrawing = function(req,res){
           var q1Value = 0;
           var q1Value2 = 0;
           var Q3 = 0;
+          var q3Value3 = 0;
           var q3Value2 = 0;
           var q3Value = 0;
           var Q2 = 0;
