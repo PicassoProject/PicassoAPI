@@ -78,11 +78,10 @@ var storeDrawing = function(req,res){
           console.log("value before before Q3: " + q3Value2.toString());
           //console.log("value before before q3: " + q3Value2.toString());
           q3Value = Math.sqrt(q3Value2); //this should be positive or negative depending on something, idk what yet
-          Q3 = Math.atan(q3Value);
-          if(!Q3){
+          if(q3Value < 0){
             q3Value = q3Value * -1;
-            Q3 = Math.atan(q3Value);
           }
+          Q3 = Math.atan(q3Value);
           q2Value = ((-pz*(l2+l3*Math.cos(Q3)) - (l3*Math.sin(Q3)*(py*Math.sin(Q1) + px*Math.cos(Q1))))/((px*Math.cos(Q1)+py*Math.sin(Q1)) * (l3*Math.cos(Q3)+l2) - (pz*l3*Math.sin(Q3))));
           Q2 = Math.atan(q2Value);
           angleObject.angle1 = Q1;
