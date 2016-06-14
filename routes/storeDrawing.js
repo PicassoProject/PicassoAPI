@@ -84,6 +84,9 @@ var storeDrawing = function(req,res){
           Q3 = Math.atan(q3Value);
           q2Value = ((-pz*(l2+l3*Math.cos(Q3)) - (l3*Math.sin(Q3)*(py*Math.sin(Q1) + px*Math.cos(Q1))))/((px*Math.cos(Q1)+py*Math.sin(Q1)) * (l3*Math.cos(Q3)+l2) - (pz*l3*Math.sin(Q3))));
           Q2 = Math.atan(q2Value);
+          Math.abs(Q1);
+          Math.abs(Q2);
+          Math.abs(Q3);
           angleObject.angle1 = Q1;
           angleObject.angle2 = Q2;
           angleObject.angle3 = Q3;
