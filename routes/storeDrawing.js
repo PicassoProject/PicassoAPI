@@ -50,9 +50,12 @@ var storeDrawing = function(req,res){
           var px = 0;
           var py = 0;
           var pz = 0;
-          var l1 = 4.445;
-          var l2 = 16.51;
-          var l3 = 15.24;
+          //var l1 = 44.45;
+          var l1 = .04445;
+          //var l2 = 165.1;
+          var l2 = .1651;
+          //var l3 = 152.4;
+          var l3 = .1524;
           var Q1 = 0;
           var q1Value = 0;
           var q1Value2 = 0;
@@ -72,6 +75,7 @@ var storeDrawing = function(req,res){
           console.log("value of px" + px.toString());
           console.log("value of py" + pz.toString());
           q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
+          //q1Value2 = (44.45)/Math.sqrt((px*px) + (py*py) - (l1*l1));
           q1Value2 = (44.45)/Math.sqrt((px*px) + (py*py) - (l1*l1));
           Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
           q3Value3 = (2*l2*l3)
