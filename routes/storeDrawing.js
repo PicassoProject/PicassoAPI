@@ -65,17 +65,18 @@ var storeDrawing = function(req,res){
           //TODO: y = px y x = pz
           //252 en px y 122 en pz
           pz = drawing.coord[i].x;
-          pz = (pz*122)/1400;
+          pz = (pz*1220)/1400;
           px = drawing.coord[i].y;
-          px = (px*252)/1844;
+          px = (px*2520)/1844;
           console.log("value of px" + px.toString());
-          console.log("value of py" + py.toString());
+          console.log("value of py" + pz.toString());
           q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
           q1Value2 = (44.45)/Math.sqrt((px*px) + (py*py) - (l1*l1));
           Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
           q3Value3 = (2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3);
+          console.log("qvalue3 before the pow" + q3Value3.toString());
           q3Value3 = Math.pow(q3Value3,2);
-          console.log("qvalue3:" + q3Value3.toString());
+          //console.log("qvalue3:" + q3Value3.toString());
           q3Value2 = q3Value3 -  1;
           //console.log("value before before Q3: " + q3Value2.toString());
           //console.log("value before before q3: " + q3Value2.toString());
