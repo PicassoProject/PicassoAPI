@@ -61,8 +61,12 @@ var storeDrawing = function(req,res){
           var q3Value = 0;
           var Q2 = 0;
           var q2Value = 0;
-          px = drawing.coord[i].x;
-          py = drawing.coord[i].y;
+          //TODO: y = px y x = pz
+          //252 en px y 122 en pz
+          pz = drawing.coord[i].x;
+          pz = (pz*122)/1400;
+          px = drawing.coord[i].y;
+          px = (px*252)/1844;
           console.log("value of px" + px.toString());
           console.log("value of py" + py.toString());
           q1Value = py/px // if atan(py/px) >= 90 use + on the sqrt or use -
