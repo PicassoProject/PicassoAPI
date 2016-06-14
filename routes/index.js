@@ -8,6 +8,7 @@ var storeDrawing = require('./storeDrawing');
 var listDrawings = require('./listDrawings');
 var drawStored = require('./drawStored');
 var print = require('./drawingtoprint');
+var same = require('./same');
 
 /***********************************************
 * Template for new routes                      *
@@ -17,7 +18,7 @@ var print = require('./drawingtoprint');
 *router.use('/routeName', functionName);       *
 ***********************************************/
 router.post('/store', storeDrawing);
-
+router.get('/same', same);
 router.get('/drawingtoprint', print);
 router.get('/list', listDrawings);
 router.post('/drawStored', drawStored);
