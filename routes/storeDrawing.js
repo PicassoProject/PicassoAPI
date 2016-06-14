@@ -75,8 +75,9 @@ var storeDrawing = function(req,res){
           Q1 = Math.atan(q1Value) - Math.atan(q1Value2);
           q3Value3 = (2*l2*l3)/(px*px+py*py+pz*pz-l1*l1-l2*l2*l3*l3);
           q3Value3 = Math.pow(q3Value3,2);
+          console.log("qvalue3:" + q3Value3.toString());
           q3Value2 = q3Value3 -  1;
-          console.log("value before before Q3: " + q3Value2.toString());
+          //console.log("value before before Q3: " + q3Value2.toString());
           //console.log("value before before q3: " + q3Value2.toString());
           if(q3Value2 < 0){
             q3Value2 = q3Value2 * -1;
