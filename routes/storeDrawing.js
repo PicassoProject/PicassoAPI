@@ -97,7 +97,7 @@ var storeDrawing = function(req,res){
           fulfill(angles);
           clearInterval(loop);
         }
-      },2000);//3000 works fine, trying 2000
+      },1000);//3000 works fine, trying 2000
     });
     //second promise fullfilled
     transform2.then(function(val){
