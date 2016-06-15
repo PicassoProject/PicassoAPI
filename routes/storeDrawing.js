@@ -67,6 +67,7 @@ var storeDrawing = function(req,res){
           //252 en px y 122 en pz
           pz = drawing.coord[i].x;
           pz = (pz*122)/1400;
+          pz = pz + 100;
           px = drawing.coord[i].y;
           px = (px*252)/1844;
           console.log("value of px" + px.toString());
